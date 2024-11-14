@@ -25,4 +25,9 @@ export class UsersService {
   async findOne(id: number): Promise<User | null> {
     return await this.usersRepository.findOne({ where: { id } });
   }
+
+  async deleteUser(id: number): Promise<string> {
+    await this.usersRepository.delete( id );
+    return 'L\'utilisateur à bien été supprimé';
+ }
 }
